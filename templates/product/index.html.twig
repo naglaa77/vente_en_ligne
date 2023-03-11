@@ -4,4 +4,32 @@
 
 {% block body %}
     <h1>Toutes Les produit que vous avez les achete</h1>
+    <h2> Hello {{ name }}</h2>
+<div class="container">
+    <div class="row">
+
+        {% for u in user %}
+            <div  class=" main-div col-sm-12 col-md-6 col-lg-4 g-5 d-flex justify-content-between align-items-center w-100 ">
+                {% if u.nom is same as("zrutherford") %}
+                    {% for item in u.commandes %}
+
+                    <div class="card col-md-4  bg-light" style="width: 18rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ item.produit.nom }}</h4>
+                            <p class="card-text">{{ item.produit.description }}</p>
+                            <p class="card-text text-red">{{ item.produit.prix }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+         </div>
+        {% endfor %} 
+    </div>
+</div>
+
+
+  
+
+    
 {% endblock %}
+           

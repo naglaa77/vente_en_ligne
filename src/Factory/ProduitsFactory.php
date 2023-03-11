@@ -48,7 +48,7 @@ final class ProduitsFactory extends ModelFactory
     {
         return [
             'description' => self::faker()->text(),
-            'nom' => self::faker()->text(255),
+            'nom' => self::faker()->sentence(),
             'prix' => self::faker()->randomFloat(),
         ];
     }

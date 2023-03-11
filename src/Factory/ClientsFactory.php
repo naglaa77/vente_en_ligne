@@ -44,11 +44,17 @@ final class ClientsFactory extends ModelFactory
      *
      * @todo add your default values here
      */
+
+        
+    // public function newUser (): self
+    // {
+    //     return $this->setNom('Dupont Paul');
+    // }
     protected function getDefaults(): array
     {
         return [
             'email' => self::faker()->text(180),
-            'nom' => self::faker()->text(255),
+            'nom' => self::faker()->userName(),
             'roles' => [],
         ];
     }
