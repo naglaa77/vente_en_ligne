@@ -46,8 +46,10 @@ class ClientsRepository extends ServiceEntityRepository
    {
        return $this->createQueryBuilder('c')
            ->andWhere('c.nom = :val')
+           ->leftJoin('c.commandes','com')
+           ->addSelect('com')
            ->setParameter('val', $value)
-           ->orderBy('c.id', 'ASC')
+           ->orderBy('com.dateCommande', 'DESC')
            ->setMaxResults(10)
            ->getQuery()
            ->getResult()

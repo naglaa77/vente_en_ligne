@@ -33,7 +33,6 @@ class Clients implements UserInterface
         $this->commandes = new ArrayCollection();
     }
 
-
     public function getId(): ?int
     {
         return $this->id;

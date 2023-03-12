@@ -48,7 +48,7 @@ final class CommandesFactory extends ModelFactory
     {
         return [
             'client' => ClientsFactory::new(),
-            'dateCommande' => self::faker()->dateTime(),
+            'dateCommande' => self::faker()->dateTimeBetween('-700 days', '-1 days'),
             'produit' => ProduitsFactory::new(),
         ];
     }

@@ -29,8 +29,6 @@ class AppFixtures extends Fixture
             ];
         });
 
-
-
     //     $clients = ClientsFactory::createMany(50,function() {
     //     return [
     //         'commandes' => CommandesFactory::new(function () {

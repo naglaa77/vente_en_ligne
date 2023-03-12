@@ -39,20 +39,26 @@ class CommandesRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Commandes[] Returns an array of Commandes objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Commandes[] Returns an array of Commandes objects
+    */
+   public function findByLesPlusChers($value): array
+   {
+    return $this->createQueryBuilder('c')
+
+           ->Join('c.client','cl')
+           ->Join('c.produit','p')
+           ->addSelect('cl.nom')
+           ->andWhere('cl.nom = :val')
+           ->select('p.nom','p.prix','p.description')
+           ->setParameter('val', $value)
+           ->orderBy('p.prix', 'DESC')
+           ->setMaxResults(3)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
 
 //    public function findOneBySomeField($value): ?Commandes
 //    {

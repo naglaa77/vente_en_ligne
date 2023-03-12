@@ -15,13 +15,13 @@ class ClientController extends AbstractController
     #[Route('/client', name: 'product')]
     public function index(EntityManagerInterface $entityManger): Response
     {
-        $name = "zrutherford";
-        //$user = $entityManger->getRepository(Clients::class)->findBy(['nom' => $name]);
+        $name = "tstrosin";
         $user = $entityManger->getRepository(Clients::class)->findByExampleField($name);
-dd($user);
+        $articlesPlusChare = $entityManger->getRepository(Commandes::class)->findByLesPlusChers($name);
         return $this->render('product/index.html.twig',[
             'user' => $user,
-            'name' => $name
+            'name' => $name,
+            'articlePlus' => $articlesPlusChare
         ]);
     }
 }
