@@ -42,7 +42,7 @@ class ClientsRepository extends ServiceEntityRepository
 //    /**
 //     * @return Clients[] Returns an array of Clients objects
 //     */
-   public function findByExampleField($value): array
+   public function findByRecentArticle($value): array
    {
        return $this->createQueryBuilder('c')
            ->andWhere('c.nom = :val')

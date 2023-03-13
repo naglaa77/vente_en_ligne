@@ -12,11 +12,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ClientController extends AbstractController
 {
-    #[Route('/client', name: 'product')]
+    #[Route('/client', name: 'client_products')]
     public function index(EntityManagerInterface $entityManger): Response
     {
         $name = "tstrosin";
-        $user = $entityManger->getRepository(Clients::class)->findByExampleField($name);
+        $user = $entityManger->getRepository(Clients::class)->findByRecentArticle($name);
         $articlesPlusChare = $entityManger->getRepository(Commandes::class)->findByLesPlusChers($name);
         return $this->render('product/index.html.twig',[
             'user' => $user,

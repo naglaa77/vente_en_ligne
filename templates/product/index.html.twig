@@ -15,7 +15,7 @@
                             <div class="article-item">
                                 <h4>{{ item.produit.nom }}</h4>
                                 <p>{{ item.produit.description }}</p>
-                                <span class="price">{{ item.produit.prix|number_format }} €</span>
+                                <span class="price">{{ item.produit.prix|number_format(2, '.', ',') }} €</span>
                             </div>
                         {% endif %}
                     {% endfor %}
